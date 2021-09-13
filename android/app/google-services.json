@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "287586208734",
+    "firebase_url": "https://immgrate-to-canada-default-rtdb.firebaseio.com",
+    "project_id": "immgrate-to-canada",
+    "storage_bucket": "immgrate-to-canada.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287586208734:android:8e094cc85efd8b73b42b4f",
+        "android_client_info": {
+          "package_name": "awesome.yaolilong.immigratetocanada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287586208734-m6f4n7ie7uugcrf03krlj5fqfvv150b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkVyQgUfBwKRTCfGs6T8L-M2095kzoz0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287586208734-m6f4n7ie7uugcrf03krlj5fqfvv150b4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "287586208734-2m7lai0739jnmga04diothtufofv3h24.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "awesome.yaolilong.immigratetocanada",
+                "app_store_id": "1583523483"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-6809346835989107~6466423853"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287586208734:android:fb33f7fd262e626cb42b4f",
+        "android_client_info": {
+          "package_name": "awesome.yaolilong.immigratetocanadaPro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287586208734-m6f4n7ie7uugcrf03krlj5fqfvv150b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkVyQgUfBwKRTCfGs6T8L-M2095kzoz0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287586208734-m6f4n7ie7uugcrf03krlj5fqfvv150b4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "287586208734-2m7lai0739jnmga04diothtufofv3h24.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "awesome.yaolilong.immigratetocanada",
+                "app_store_id": "1583523483"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
