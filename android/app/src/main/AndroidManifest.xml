@@ -8,7 +8,7 @@
       </intent>
    </queries>
    <application
-        android:label="IMM to CA"
+        android:label="IMM to CA Pro"
         android:icon="@mipmap/ic_launcher">
         
         <activity

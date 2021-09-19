@@ -4,7 +4,7 @@ class Messages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en': {
-          'app_name': 'Immigrate to Canada',
+          'app_name': 'IMM to CA',
           'home_page_title': 'Immigrate to Canada',
           'navigation_label_living': 'Living',
           'navigation_label_study': 'Study',

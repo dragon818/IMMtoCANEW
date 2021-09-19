@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:immigratetocanada/dataserver/dataServer.dart';
 import 'package:immigratetocanada/models/ListDetails.dart';
 import 'package:immigratetocanada/pages/ads/AdHelper.dart';
 import 'package:url_launcher/url_launcher.dart';

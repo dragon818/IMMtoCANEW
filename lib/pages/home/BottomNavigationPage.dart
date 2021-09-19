@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:immigratetocanada/models/BottomNavigationModel.dart';
-import 'package:immigratetocanada/pages/ads/AdHelper.dart';
 import 'package:immigratetocanada/models/ListDetails.dart';
 import 'package:immigratetocanada/pages/list/ListDetailsPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,10 +12,12 @@ import 'TopSwiper.dart';
 class BottomNavigationPage extends StatefulWidget {
   final BottomNavigationModel bottomNavigationModel;
   final List<dynamic> data;
+  final String nativeAdId;
 
   BottomNavigationPage({
     required this.bottomNavigationModel,
     required this.data,
+    required this.nativeAdId,
   });
   @override
   _BottomNavigationPageState createState() => _BottomNavigationPageState();
@@ -45,7 +46,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
     super.initState();
 
     _nativeAd = NativeAd(
-      adUnitId: AdHelper.nativeAdUnitIdForNav,
+      adUnitId: widget.nativeAdId,
       request: AdRequest(),
       factoryId: 'listTile',
       listener: NativeAdListener(
@@ -103,7 +104,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 if (_nativeAdIsLoaded && index == _kAdIndex) {
-                  return GoogleNativeAd(nativeAd: _nativeAd);
+                  return GoogleNativeAd(_nativeAd);
                 } else {
                   final item = widget.data[_getDestinationItemIndex(index)];
                   return Card(
@@ -161,7 +162,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 if (_nativeAdIsLoaded && index == _kAdIndex) {
-                  return GoogleNativeAd(nativeAd: _nativeAd);
+                  return GoogleNativeAd(_nativeAd);
                 } else {
                   final item = widget.data[_getDestinationItemIndex(index)];
                   return Card(

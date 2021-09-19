@@ -6,8 +6,6 @@ import 'package:immigratetocanada/models/Message.dart';
 import 'package:immigratetocanada/pages/home/MyHomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
-import 'package:immigratetocanada/pages/home/NoDataPage.dart';
-
 import 'dataserver/dataServer.dart';
 
 Future<void> main() async {
@@ -60,12 +58,21 @@ class _MyAppState extends State<MyApp> {
           ) {
             print(snapshot.connectionState);
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return SizedBox(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+                height: 200,
+                width: 200,
+              );
             } else if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasError) {
                 return const Text('Error');
               } else if (snapshot.hasData) {
-                return MyHomePage(title: 'home_page_title'.tr);
+                return MyHomePage(
+                  title: 'home_page_title'.tr,
+                  data: snapshot.data!,
+                );
               } else {
                 return const Text('Empty data');
               }

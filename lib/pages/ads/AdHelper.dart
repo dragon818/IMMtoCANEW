@@ -10,19 +10,40 @@ class AdHelper {
     throw new UnsupportedError("Unsupported platform");
   }
 
-  static String get nativeAdUnitIdForNav {
+  static String get nativeAdUnitIdForStudy {
     if (Platform.isAndroid) {
       return 'ca-app-pub-6809346835989107/9452774720';
     } else if (Platform.isIOS) {
       return 'ca-app-pub-6809346835989107/6396488707';
     }
     throw new UnsupportedError("Unsupported platform");
-    // if (Platform.isAndroid) {
-    //   return 'ca-app-pub-6809346835989107/4440053984';
-    // } else if (Platform.isIOS) {
-    //   return 'ca-app-pub-6809346835989107/6396488707';
-    // }
-    // throw new UnsupportedError("Unsupported platform");
+  }
+
+  static String get nativeAdUnitIdForLiving {
+    if (Platform.isAndroid) {
+      return 'ca-app-pub-6809346835989107/2243334704';
+    } else if (Platform.isIOS) {
+      return 'ca-app-pub-6809346835989107/6209472203';
+    }
+    throw new UnsupportedError("Unsupported platform");
+  }
+
+  static String get nativeAdUnitIdForImmigration {
+    if (Platform.isAndroid) {
+      return 'ca-app-pub-6809346835989107/4422296552';
+    } else if (Platform.isIOS) {
+      return 'ca-app-pub-6809346835989107/6190673795';
+    }
+    throw new UnsupportedError("Unsupported platform");
+  }
+
+  static String get nativeAdUnitIdForQandA {
+    if (Platform.isAndroid) {
+      return 'ca-app-pub-6809346835989107/8800525260';
+    } else if (Platform.isIOS) {
+      return 'ca-app-pub-6809346835989107/3659879226';
+    }
+    throw new UnsupportedError("Unsupported platform");
   }
 
   static String get nativeAdUnitIdForDetail {

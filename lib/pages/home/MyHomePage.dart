@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:immigratetocanada/dataserver/dataServer.dart';
 import 'package:immigratetocanada/models/BottomNavigationModel.dart';
 import 'package:immigratetocanada/models/ListDetails.dart';
 import 'package:immigratetocanada/models/QuestionAndAnswer.dart';
+import 'package:immigratetocanada/pages/ads/AdHelper.dart';
 import 'BottomNavigationPage.dart';
 import 'package:get/get.dart';
-import 'NoDataPage.dart';
 
 class MyHomePage extends StatefulWidget {
   final String title;
+  final Map<String, dynamic> data;
 
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title, required this.data})
+      : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -31,8 +32,6 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   late int currentIndex;
-  late DataServer dataServer;
-  late dynamic data;
 
   late final List<Widget> pages;
   late final BottomNavigationModel immigrationPage;
@@ -40,51 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
   late final BottomNavigationModel studyPage;
   late final BottomNavigationModel questionAndAnswerPage;
 
-  List<Widget> getPages() {
-    if (data is String) {
-      return [
-        NoDataPage(),
-      ];
-    } else {
-      return Get.deviceLocale?.languageCode == 'en'
-          ? [
-              BottomNavigationPage(
-                  bottomNavigationModel: studyPage,
-                  data: mapDataToList('study')),
-              BottomNavigationPage(
-                  bottomNavigationModel: livingPage,
-                  data: mapDataToList('living')),
-              BottomNavigationPage(
-                  bottomNavigationModel: immigrationPage,
-                  data: mapDataToList('immigration')),
-              BottomNavigationPage(
-                  bottomNavigationModel: questionAndAnswerPage,
-                  data: mapDataToListQandA('Q&A')),
-            ]
-          : [
-              BottomNavigationPage(
-                  bottomNavigationModel: studyPage, data: mapDataToList('学习')),
-              BottomNavigationPage(
-                  bottomNavigationModel: livingPage, data: mapDataToList('生活')),
-              BottomNavigationPage(
-                  bottomNavigationModel: immigrationPage,
-                  data: mapDataToList('移民')),
-              BottomNavigationPage(
-                  bottomNavigationModel: questionAndAnswerPage,
-                  data: mapDataToListQandA('问答')),
-            ];
-    }
-  }
-
   List<ListDetails> mapDataToList(String path) {
-    var mapList = List.from(data[path]);
+    var mapList = List.from(widget.data[path]);
     return mapList
         .map((e) => ListDetails.fromRTDB(Map<String, dynamic>.from(e)))
         .toList();
   }
 
   List<QuestionAndAnswer> mapDataToListQandA(String path) {
-    var mapList = List.from(data[path]);
+    var mapList = List.from(widget.data[path]);
     return mapList
         .map((e) => QuestionAndAnswer.fromRTDB(Map<String, dynamic>.from(e)))
         .toList();
@@ -93,10 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    dataServer = DataServer();
-    data = dataServer.getJsonData();
-
-    print(data['study']);
     currentIndex = 0;
 
     immigrationPage = BottomNavigationModel(
@@ -121,7 +80,43 @@ class _MyHomePageState extends State<MyHomePage> {
       'images/1.jpg',
     );
 
-    pages = getPages();
+    pages = Get.deviceLocale?.languageCode == 'en'
+        ? [
+            BottomNavigationPage(
+                bottomNavigationModel: studyPage,
+                data: mapDataToList('study'),
+                nativeAdId: AdHelper.nativeAdUnitIdForStudy),
+            BottomNavigationPage(
+                bottomNavigationModel: livingPage,
+                data: mapDataToList('living'),
+                nativeAdId: AdHelper.nativeAdUnitIdForLiving),
+            BottomNavigationPage(
+                bottomNavigationModel: immigrationPage,
+                data: mapDataToList('immigration'),
+                nativeAdId: AdHelper.nativeAdUnitIdForImmigration),
+            BottomNavigationPage(
+                bottomNavigationModel: questionAndAnswerPage,
+                data: mapDataToListQandA('Q&A'),
+                nativeAdId: AdHelper.nativeAdUnitIdForQandA),
+          ]
+        : [
+            BottomNavigationPage(
+                bottomNavigationModel: studyPage,
+                data: mapDataToList('学习'),
+                nativeAdId: AdHelper.nativeAdUnitIdForStudy),
+            BottomNavigationPage(
+                bottomNavigationModel: livingPage,
+                data: mapDataToList('生活'),
+                nativeAdId: AdHelper.nativeAdUnitIdForLiving),
+            BottomNavigationPage(
+                bottomNavigationModel: immigrationPage,
+                data: mapDataToList('移民'),
+                nativeAdId: AdHelper.nativeAdUnitIdForImmigration),
+            BottomNavigationPage(
+                bottomNavigationModel: questionAndAnswerPage,
+                data: mapDataToListQandA('问答'),
+                nativeAdId: AdHelper.nativeAdUnitIdForQandA),
+          ];
   }
 
   @override
