@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:immigratetocanada/models/Message.dart';
@@ -8,10 +6,8 @@ import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'dataserver/dataServer.dart';
 
-Future<void> main() async {
+main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await FirebaseAuth.instance.signInAnonymously();
   MobileAds.instance.initialize();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {

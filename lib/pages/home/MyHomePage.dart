@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:immigratetocanada/models/BottomNavigationModel.dart';
 import 'package:immigratetocanada/models/ListDetails.dart';
@@ -119,11 +121,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ];
   }
 
+  // void shareDownLink() {
+  //   if (Platform.isAndroid) {
+  //     Share.share(
+  //         'https://play.google.com/store/apps/details?id=awesome.yaolilong.immigratetocanadaPro');
+  //   } else if (Platform.isIOS) {
+  //     Share.share('https://apps.apple.com/ca/app/imm-to-ca/id1583523483');
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(onPressed: null, icon: Icon(Icons.share_outlined))
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.grey[200],
