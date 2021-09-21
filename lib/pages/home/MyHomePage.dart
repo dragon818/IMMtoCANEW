@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:immigratetocanada/models/BottomNavigationModel.dart';
 import 'package:immigratetocanada/models/ListDetails.dart';
@@ -7,6 +5,7 @@ import 'package:immigratetocanada/models/QuestionAndAnswer.dart';
 import 'package:immigratetocanada/pages/ads/AdHelper.dart';
 import 'BottomNavigationPage.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MyHomePage extends StatefulWidget {
   final String title;
@@ -121,14 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ];
   }
 
-  // void shareDownLink() {
-  //   if (Platform.isAndroid) {
-  //     Share.share(
-  //         'https://play.google.com/store/apps/details?id=awesome.yaolilong.immigratetocanadaPro');
-  //   } else if (Platform.isIOS) {
-  //     Share.share('https://apps.apple.com/ca/app/imm-to-ca/id1583523483');
-  //   }
-  // }
+  void share(BuildContext context) async {
+    final box = context.findRenderObject() as RenderBox?;
+    Share.share(
+      "【IMM to CA】\n http://www.dragonwarrior.space/",
+      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          IconButton(onPressed: null, icon: Icon(Icons.share_outlined))
+          IconButton(
+              onPressed: () => share(context), icon: Icon(Icons.share_outlined))
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
